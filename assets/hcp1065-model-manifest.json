@@ -1,0 +1,67 @@
+{
+  "model": "hcp1065-tract-tubes.glb",
+  "source": "https://github.com/data-others/atlas/releases/tag/hcp1065",
+  "citation": "Yeh FC. Population-based tract-to-region connectome of the human brain and its hierarchical topology. Nature Communications 13, 4933 (2022).",
+  "license": "CC-BY-SA 4.0",
+  "license_url": "http://creativecommons.org/licenses/by-sa/4.0/",
+  "subjects": 1065,
+  "adaptation": "Build-time conversion of sampled atlas streamlines into hexagonal tube meshes, then Draco mesh compression for mobile delivery; no procedural pathway curves.",
+  "included": {
+    "corpus": {
+      "atlas_bundles": [
+        "CC"
+      ],
+      "sampled_streamlines": 150
+    },
+    "cingulum": {
+      "atlas_bundles": [
+        "C_FPH_L",
+        "C_FPH_R",
+        "C_FP_L",
+        "C_FP_R",
+        "C_PHP_L",
+        "C_PHP_R",
+        "C_PH_L",
+        "C_PH_R",
+        "C_PO_L",
+        "C_PO_R"
+      ],
+      "sampled_streamlines": 220
+    },
+    "arcuate": {
+      "atlas_bundles": [
+        "AF_L",
+        "AF_R"
+      ],
+      "sampled_streamlines": 124
+    },
+    "corticospinal": {
+      "atlas_bundles": [
+        "CST_L",
+        "CST_R"
+      ],
+      "sampled_streamlines": 124
+    },
+    "optic": {
+      "atlas_bundles": [
+        "OR_L",
+        "OR_R"
+      ],
+      "sampled_streamlines": 124
+    },
+    "uncinate": {
+      "atlas_bundles": [
+        "UF_L",
+        "UF_R"
+      ],
+      "sampled_streamlines": 124
+    },
+    "ilf": {
+      "atlas_bundles": [
+        "ILF_L",
+        "ILF_R"
+      ],
+      "sampled_streamlines": 124
+    }
+  }
+}
