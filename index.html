@@ -122,35 +122,12 @@
       pointer-events: none;
     }
 
-    .view-toggle, .signal-button, .pulse-speed {
+    .signal-button, .pulse-speed {
       pointer-events: auto;
       border: 1px solid var(--line);
       background: rgba(10, 19, 28, .92);
       color: var(--ink);
       min-height: 44px;
-    }
-
-    .view-toggle {
-      display: inline-flex;
-      padding: 4px;
-      border-radius: 12px;
-    }
-
-    .view-toggle button {
-      border: 0;
-      color: var(--muted);
-      background: transparent;
-      padding: 8px 13px;
-      min-height: 34px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: .8rem;
-    }
-
-    .view-toggle button[aria-pressed="true"] {
-      background: #253443;
-      color: white;
     }
 
     .signal-button {
@@ -175,6 +152,7 @@
     .signal-button.active .signal-state { color: var(--cyan); }
 
     .signal-controls {
+      margin-left: auto;
       display: flex;
       align-items: center;
       justify-content: flex-end;
@@ -262,17 +240,6 @@
     .model-status.loaded { opacity: 0; }
     .model-status.error { color: var(--rose); }
     .model-status.error::before { display: none; }
-    .orientation-pair {
-      position: absolute;
-      inset: 50% 18px auto;
-      z-index: 2;
-      display: flex;
-      justify-content: space-between;
-      color: #8896a4;
-      font: 500 .7rem "IBM Plex Mono", monospace;
-      letter-spacing: .08em;
-      pointer-events: none;
-    }
 
     @keyframes modelSpin { to { transform: rotate(360deg); } }
 
@@ -515,7 +482,6 @@
       .intro p { font-size: .9rem; }
       .stage { min-height: 455px; border-radius: 16px; }
       .stage-toolbar { left: 10px; right: 10px; top: 10px; flex-wrap: wrap; align-items: flex-start; }
-      .view-toggle button { padding-inline: 10px; }
       .signal-controls { flex: 1 1 100%; order: 3; display: grid; grid-template-columns: auto minmax(0, 1fr); }
       .signal-button { padding: 0 10px; justify-content: center; border-radius: 11px; gap: 6px; font-size: .68rem; }
       .signal-label { display: inline; }
@@ -546,17 +512,13 @@
 <body>
   <main>
     <section class="intro" aria-labelledby="page-heading">
-      <h1 id="page-heading">Trace the pathways.</h1>
+      <h1 id="page-heading">Connectome Neural Tracts Tracing</h1>
       <p>Explore seven major white-matter systems reconstructed in three dimensions from the HCP1065 population-averaged tractography atlas.</p>
     </section>
 
     <section class="workspace" aria-label="Interactive neural tract explorer">
       <div class="stage">
         <div class="stage-toolbar">
-          <div class="view-toggle" aria-label="Tissue view">
-            <button type="button" data-view="anatomy" aria-pressed="true">Anatomy</button>
-            <button type="button" data-view="connectome" aria-pressed="false">Connectome</button>
-          </div>
           <div class="signal-controls">
             <button type="button" class="signal-button" id="signalButton" aria-pressed="false" aria-label="Animate action potentials along visible neural tracts">
               <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h3l2.2-5 3.4 10 2.1-5H17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -574,9 +536,10 @@
         <div class="brain-wrap">
           <canvas id="brainCanvas" role="img" aria-label="Interactive three-dimensional model of seven major human white-matter tract systems derived from the HCP1065 population atlas. Drag to rotate and pinch or scroll to zoom."></canvas>
           <div class="model-status" id="modelStatus">Loading HCP1065 mesh</div>
-          <div class="orientation-pair" aria-hidden="true"><span>L</span><span>R</span></div>
         </div>
+        <!-- Usage instructions, hidden for now; restore under an instructions section later.
         <div class="scale-label"><span class="scale-line" aria-hidden="true"></span> drag to rotate · scroll to zoom</div>
+        -->
       </div>
 
       <aside class="side-panel">
